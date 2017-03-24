@@ -13,10 +13,11 @@ namespace eSale.Controllers
 
         public ActionResult Index()
         {
-            Models.OrderService orderservice = new Models.OrderService();
-            var order = orderservice.GetOrderById("123");
-            ViewBag.CustId = order.CustID;
-            ViewBag.CustName = order.CustName;
+            //Models.OrderService orderservice = new Models.OrderService();
+            //var order = orderservice.GetOrderById("123");
+            //ViewBag.CustId = order.CustID;
+            //ViewBag.CustName = order.CustName;
+            
             return View();
         }
 
@@ -24,9 +25,13 @@ namespace eSale.Controllers
         /// 新增訂單畫面
         /// </summary>
         /// <returns></returns>
-        public ActionResult InsertOrder()
+        public ActionResult InsertOrder(Models.Order order)
         {
-            return View();
+            ViewBag.Desc1 = "我是ViewBag";
+            ViewData["Desc2"] = "我是ViewData";
+            TempData["Desc3"] = "我是TempData";   
+            
+            return RedirectToAction("Index");
         }
 
         /// <summary>
@@ -40,6 +45,12 @@ namespace eSale.Controllers
             Models.OrderService orderService = new Models.OrderService();
             orderService.InsertOrder(order);
             return View("Index");
+        }
+        [HttpGet()]
+        public JsonResult TestJson()
+        {
+            var result = new Models.Order() { CustID = "ABC", CustName = "你好123" };
+            return this.Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

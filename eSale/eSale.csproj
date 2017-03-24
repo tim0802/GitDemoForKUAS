@@ -108,7 +108,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Emp\Controllers\Default1Controller.cs" />
     <Compile Include="Areas\Emp\EmpAreaRegistration.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -153,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Emp\Controllers\" />
     <Folder Include="Areas\Emp\Models\" />
     <Folder Include="Areas\Emp\Views\Shared\" />
   </ItemGroup>
